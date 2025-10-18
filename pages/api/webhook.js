@@ -1,9 +1,3 @@
-const expected = process.env.WEBHOOK_SECRET;
-console.log('[webhook] has_expected_secret:', Boolean(expected));
-console.log('[webhook] body_has_secret:', typeof body?.secret === 'string', 'len=', (body?.secret||'').length);
-if (expected && body?.secret !== expected) {
-  return res.status(401).json({ ok: false, error: 'unauthorized' });
-}
 // pages/api/webhook.js
 import axios from 'axios';
 
